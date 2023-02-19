@@ -81,7 +81,6 @@ export default {
     getCarts () {
       this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
         .then(res => {
-          console.log('購物車:', res)
           this.products = res.data.products
           this.cart = res.data.data
         })
@@ -92,10 +91,8 @@ export default {
         qty: item.qty
       }
       this.loadingItem = item.id
-      console.log(data, item.id)
       this.$http.put(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`, { data })
         .then(res => {
-          console.log('更新購物車清單:', res)
           this.getCarts()
           this.loadingItem = ''
         })
@@ -104,7 +101,6 @@ export default {
       this.loadingItem = item.id
       this.$http.delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`)
         .then(res => {
-          console.log('刪除項目:', res)
           this.getCarts()
           this.loadingItem = ''
           alert('該商品已經清空')
@@ -117,7 +113,6 @@ export default {
         this.loadingItem = 'deleteAll'
         this.$http.delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/carts`)
           .then(res => {
-            console.log('清空購物車:', res)
             this.getCarts()
             this.loadingItem = ''
             alert('購物車已清空')
@@ -128,7 +123,6 @@ export default {
       this.loadingItem = modalLoading
     },
     sendOrder () {
-      console.log(this.cart.carts.length)
       if (this.cart.carts.length === 0) {
         alert('購物車清單內為空')
       } else {
@@ -143,7 +137,6 @@ export default {
         }
         this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order`, { data })
           .then(res => {
-            console.log('送出訂單:', res)
             this.getCarts()
             this.loadingItem = ''
             this.$refs.form.resetForm()

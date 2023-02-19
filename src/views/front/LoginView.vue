@@ -38,9 +38,7 @@ export default {
     check () {
       this.$http.post(`${VITE_APP_URL}admin/signin`, this.user)
         .then((res) => {
-          console.log(res, this.user)
           const { token, expired } = res.data
-          console.log(token, expired)
           document.cookie = `mytoken=${token}; expires=${new Date(expired)};`// 將存取到的token存入cookie
           this.$router.push('/admin/products')
         })

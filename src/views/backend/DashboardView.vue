@@ -27,7 +27,6 @@ export default {
       this.$http.defaults.headers.common.Authorization = token
       this.$http.post(`${VITE_APP_URL}api/user/check`)
         .then((res) => {
-          console.log(res)
           if (!res.data.success) {
             alert(res.data.message)
             this.$router.push('/login')

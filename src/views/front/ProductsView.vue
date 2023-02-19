@@ -42,10 +42,7 @@ export default {
   },
   methods: {
     getProducts () {
-      // console.log(import.meta.env)
-      // console.log(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}`)
       this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products/all`).then((res) => {
-        console.log(res)
         this.product = res.data.products
       })
     },
@@ -56,7 +53,6 @@ export default {
         qty: 1
       }
       this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data }).then((res) => {
-        console.log(res)
         this.loadingItem = ''
       })
     }
