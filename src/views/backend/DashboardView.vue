@@ -30,6 +30,7 @@ export default {
         .then((res) => {
           if (!res.data.success) {
             alert(res.data.message)
+            loader.hide()
             this.$router.push('/login')
           } else {
             this.checkSuccess = true
