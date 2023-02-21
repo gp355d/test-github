@@ -42,8 +42,12 @@ export default {
   },
   methods: {
     getProducts () {
+      const loader = this.$loading.show()
       this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products/all`).then((res) => {
         this.product = res.data.products
+        loader.hide()
+      }).catch((err) => {
+        alert(err.response.data.message)
       })
     },
     addToCart (id) {
@@ -54,6 +58,9 @@ export default {
       }
       this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data }).then((res) => {
         this.loadingItem = ''
+        alert('已將商品加入購物車！')
+      }).catch((err) => {
+        alert(err.response.data.message)
       })
     }
   },

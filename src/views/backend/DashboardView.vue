@@ -25,6 +25,7 @@ export default {
     checkLogin () {
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)mytoken\s*=\s*([^;]*).*$)|^.*$/, '$1')// 存取cookie
       this.$http.defaults.headers.common.Authorization = token
+      const loader = this.$loading.show()
       this.$http.post(`${VITE_APP_URL}api/user/check`)
         .then((res) => {
           if (!res.data.success) {
@@ -32,6 +33,7 @@ export default {
             this.$router.push('/login')
           } else {
             this.checkSuccess = true
+            loader.hide()
             this.$router.push('/admin/products')
           }
         })

@@ -44,6 +44,10 @@ const routes = [
         component: () => import('../views/backend/AdminOrdersView.vue')
       }
     ]
+  },
+  { // 404頁面
+    path: '/:pathMatch(.*)*',
+    component: () => import('../views/NotFound.vue')
   }
 ]
 

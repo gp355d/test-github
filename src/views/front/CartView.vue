@@ -60,6 +60,7 @@
   </table>
 </template>
 <script>
+
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data () {
@@ -79,10 +80,15 @@ export default {
   },
   methods: {
     getCarts () {
+      const loader = this.$loading.show()
       this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
         .then(res => {
           this.products = res.data.products
           this.cart = res.data.data
+          loader.hide()
+        })
+        .catch((err) => {
+          alert(err.response.data.message)
         })
     },
     updateCartItem (item) { // 購物車的id,產品的id
@@ -95,6 +101,9 @@ export default {
         .then(res => {
           this.getCarts()
           this.loadingItem = ''
+          alert('商品數量已更新！')
+        }).catch((err) => {
+          alert(err.response.data.message)
         })
     },
     deleteItem (item) {
@@ -104,6 +113,8 @@ export default {
           this.getCarts()
           this.loadingItem = ''
           alert('該商品已經清空')
+        }).catch((err) => {
+          alert(err.response.data.message)
         })
     },
     clearCart () {
@@ -116,6 +127,8 @@ export default {
             this.getCarts()
             this.loadingItem = ''
             alert('購物車已清空')
+          }).catch((err) => {
+            alert(err.response.data.message)
           })
       }
     },
@@ -141,6 +154,8 @@ export default {
             this.loadingItem = ''
             this.$refs.form.resetForm()
             alert('訂單已送出')
+          }).catch((err) => {
+            alert(err.response.data.message)
           })
       }
     },

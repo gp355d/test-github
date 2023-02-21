@@ -14,8 +14,12 @@ export default {
   methods: {
     getProduct () {
       const { id } = this.$route.params
+      const loader = this.$loading.show()
       this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`).then((res) => {
         this.product = res.data.product
+        loader.hide()
+      }).catch((err) => {
+        alert(err.response.data.message)
       })
     }
   },
