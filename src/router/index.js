@@ -29,7 +29,8 @@ const routes = [
   },
   {
     path: '/login',
-    component: () => import('../views/front/LoginView.vue')
+    component: () => import('../views/front/LoginView.vue'),
+    meta: { title: '管理者登入頁面' }
   },
   {
     path: '/admin',
@@ -37,11 +38,23 @@ const routes = [
     children: [
       {
         path: 'products',
-        component: () => import('../views/backend/AdminProductsView.vue')
+        component: () => import('../views/backend/AdminProductsView.vue'),
+        meta: { title: '產品管理頁面' }
       },
       {
         path: 'orders',
-        component: () => import('../views/backend/AdminOrdersView.vue')
+        component: () => import('../views/backend/AdminOrdersView.vue'),
+        meta: { title: '訂單管理頁面' }
+      },
+      {
+        path: 'coupons',
+        component: () => import('../views/backend/AdminCouponsView.vue'),
+        meta: { title: '優惠券管理頁面' }
+      },
+      {
+        path: 'articles',
+        component: () => import('../views/backend/AdminArticlesView.vue'),
+        meta: { title: '文章管理頁面' }
       }
     ]
   },
