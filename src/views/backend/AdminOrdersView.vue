@@ -1,6 +1,6 @@
 <template>
   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="row py-3">
+    <div class="py-3">
       <div class="table-responsive">
         <table class="table mt-4">
           <thead>
@@ -129,7 +129,7 @@ export default {
       })
     },
     deleteOrder () {
-      const url = `${VITE_APP_URL}v2/api/${VITE_APP_PATH}/admin/order1/${this.tempOrder.id}`
+      const url = `${VITE_APP_URL}v2/api/${VITE_APP_PATH}/admin/order/${this.tempOrder.id}`
       this.$http.delete(url)
         .then((res) => {
           Swal.fire({
@@ -140,7 +140,7 @@ export default {
             timer: 1500
           })
           const orderdelComponent = this.$refs.orderdelModal
-          orderdelComponent.hide()
+          orderdelComponent.hideModal()
           this.getOrders()
         })
         .catch((err) => {

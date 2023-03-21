@@ -1,6 +1,6 @@
 <template>
   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="row py-3">
+    <div class="py-3">
       <div class="text-end mt-4">
         <button class="btn btn-primary" type="button" @click="() => openModal('new')">
           建立新的優惠券

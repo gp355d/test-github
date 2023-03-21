@@ -1,0 +1,44 @@
+$base-line-height:24px;
+.lh-29 {
+  line-height: $base-line-height*1.20833;
+}
+.lh-30{
+  line-height: $base-line-height*1.25;
+}
+.lh-38{
+  line-height: $base-line-height*1.5833;
+}
+.lh-36{
+  line-height: $base-line-height*1.5;
+}
+.mb-12{
+  margin-bottom: 12px;
+}
+.noto-serif-font{
+  font-family: 'Noto Serif TC', serif;
+
+}
+.object-fit{
+  object-fit: cover;
+}
+// .sticky-footer{
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+// }
+// .sticky-bottom{
+//   margin-top: auto;
+// }
+.menu{
+  .link{
+    text-decoration: none;
+    padding: 8px 12px;
+    &:hover{
+      color: $white;
+      padding: 8px 12px;
+      background-color: #929966;
+      display: block;
+      border-radius: 4px;;
+    }
+  }
+}

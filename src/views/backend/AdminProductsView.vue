@@ -1,6 +1,6 @@
 <template>
   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="row py-3">
+    <div class="py-3">
     <div class="text-end mt-4">
       <button class="btn btn-primary" type="button" @click="() => openModal('new')">
         建立新的產品
@@ -48,7 +48,7 @@
     </div>
     <ProductsModal ref="productModal" :temp-products="tempProducts" :is-new="isNew" @update-data="updateProduct"></ProductsModal>
     <Pagination :pages="pagination" @emitPages="getProducts"></Pagination>
-    <DelModal ref="productdelModal" :temp-items="tempProducts" @delete-data="deleteProduct" :id=1></DelModal>
+    <DelModal ref="productsdelModal" :temp-items="tempProducts" @delete-data="deleteProduct" :id=1></DelModal>
   </div>
   </main>
 </template>
@@ -107,7 +107,7 @@ export default {
         productModal.openModal()
       } else if (status === 'delete') {
         this.tempProducts = { ...item }
-        const productdelComponent = this.$refs.productdelModal
+        const productdelComponent = this.$refs.productsdelModal
         loader.hide()
         productdelComponent.openModal()
       }
@@ -157,8 +157,8 @@ export default {
             showConfirmButton: false,
             timer: 1500
           })
-          const productdelComponent = this.$refs.productdelModal
-          productdelComponent.hide()
+          const productdelComponent = this.$refs.productsdelModal
+          productdelComponent.hideModal()
           this.getProducts()
         })
         .catch((err) => {

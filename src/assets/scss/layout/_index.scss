@@ -1,0 +1,144 @@
+.index__h1 {
+  color: #00cc99;
+  font-size: 20px;
+  font-weight: 400;
+}
+* {
+  // outline: 1px solid #000;
+}
+.indexAboutImg{
+  min-height:400px;
+  background-position: center;
+}
+.border-radiaus{
+  border-radius: 40px;
+}
+@media (max-width:767px){
+  .translate-middle-y {
+    transform: none !important;
+    /* transform: translateY(-50%)!important; */
+  }
+}
+  @media (max-width: 768px) { 
+    .mb-240{
+      margin-bottom: 240px !important;
+    }
+    .min-h140{
+      min-height:140px;
+    }
+  }
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// .swiper-slide img {
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+.object-fit {
+  object-fit: cover;
+}
+  /* background: linear-gradient(90deg, #eeedea, #eeedea 78%, #ffffff 77%); */
+.test{
+  position: relative;
+  background-image:linear-gradient(180deg,#D8D2C5,#D8D2C5);
+  background-size: 96% 100%;
+  background-repeat: no-repeat;
+}
+@media (max-width: 768px) { 
+  .test{
+    background-size: 100% 100%;
+  }
+}
+.s{
+position: absolute;
+right:0;
+}
+@media (max-width: 768px) { 
+  .s{
+    position: static;
+  }
+}
+.s1{
+position: absolute;
+left:0;
+}
+@media (max-width: 768px) { 
+  .s1{
+    position: static;
+  }
+}
+.s2{
+  position: absolute;
+  left:0;
+}
+  @media (max-width: 768px) { 
+    .s2{
+      position: static;
+    }
+  }
+  .s3{
+  position: absolute;
+  right:0;
+}
+  @media (max-width: 768px) { 
+    .s3{
+      position: static;
+    }
+  }
+  .swiper-pagination{
+    position: absolute;
+    bottom: 0;
+    left: 50% !important;
+    width: 30% !important;
+    transform: translateX(-50%) !important;
+    text-align: center;
+    z-index: 3;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    color: #46633D !important;
+}
+.swiper-pagination-bullet{
+  background-color: #46633D !important;
+}
+
+.banner {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.jumbotron {
+  background: url('https://images.unsplash.com/photo-1522747776116-64ee03be1dad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: scroll; 
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.navbar {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.spacer {
+  height: 100px;
+}
