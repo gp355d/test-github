@@ -1,9 +1,8 @@
 <template>
   <div class="container py-8">
-  <router-link href="#" to="/products">繼續購物</router-link>
-  <div class="row justify-content-center align-items-center flex-column">
-    <h2 class="text-center text-primary mb-7 fw-bold">常見問題</h2>
-    <div class="col-md-6 mb-5 justify-content-center d-flex flex-column">
+    <div class="row justify-content-center align-items-center flex-column">
+      <h2 class="text-center text-primary mb-7 fw-bold">常見問題</h2>
+      <div class="col-md-6 mb-5 justify-content-center d-flex flex-column">
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">

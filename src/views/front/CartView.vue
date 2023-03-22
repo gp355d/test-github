@@ -3,9 +3,9 @@
     <loading v-model:active="isLoading"></loading>
     <h2 class="text-center text-primary mb-7 fw-bold">購物車列表</h2>
     <div class="row justify-content-center flex-column flex-md-row mb-4">
-      <router-link to="/products">繼續購物</router-link>
       <template v-if="carts.carts?.length">
         <div class="col-md-6">
+          <router-link to="/products">回商品列表</router-link>
           <div class="row bg-white p-2">
             <!-- <div class="col-12 mb-3">
               <div class="row">

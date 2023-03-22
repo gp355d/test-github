@@ -5,8 +5,8 @@
   <div class="row justify-content-center flex-column flex-md-row">
     <div class="col-md-9 mb-3 d-flex flex-column justify-content-between">
       <div class="row">
-        <router-link to="/products">繼續購物</router-link>
         <div class="col-md-6">
+          <router-link to="/products">回購物車列表</router-link>
             <div class="border p-2 h-100">
               <h3 class="text-center fw-bold text-primary">訂單明細</h3>
               <div class="d-flex align-items-center mb-4 shadow-sm p-2" v-for="item in carts.carts" :key="item.id">

@@ -6,6 +6,9 @@
 * {
   // outline: 1px solid #000;
 }
+.bg-cover{
+  background-size: cover;
+}
 .indexAboutImg{
   min-height:400px;
   background-position: center;
@@ -114,31 +117,14 @@ left:0;
   background-color: #46633D !important;
 }
 
-.banner {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-.jumbotron {
-  background: url('https://images.unsplash.com/photo-1522747776116-64ee03be1dad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat center center fixed;
+.banner-img {
   background-size: cover;
+  height: 100vh;
   background-attachment: scroll; 
   color: #fff;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  padding-top: 100px;
+  // position: absolute;
+  // padding: 0 !important;
+  // margin: 0 !important;
 }
-
-.navbar {
-  background-color: transparent !important;
-  border: none !important;
-}
-
-.spacer {
-  height: 100px;
-}
+  

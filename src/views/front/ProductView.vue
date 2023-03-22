@@ -115,7 +115,7 @@
               商品介紹
             </button>
           </li>
-          <li class="nav-item" role="presentation">
+          <!-- <li class="nav-item" role="presentation">
             <button
               class="nav-link"
               id="profile-tab"
@@ -142,7 +142,7 @@
             >
               商品特色
             </button>
-          </li>
+          </li> -->
         </ul>
         <div class="tab-content" id="myTabContent">
           <div
