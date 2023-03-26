@@ -39,7 +39,7 @@
                     <img :src="image" />
                   </swiper-slide>
               </swiper>
-              {{ product.success }}
+              <!-- {{ product }} -->
           </div>
           <div class="col-md-5">
             <div class="d-flex flex-column justify-content-center h-100">
@@ -197,12 +197,12 @@
       }
     }"
     :modules="modules">
-    <swiper-slide v-for="item in tempProducts" :key="item.id">
+    <swiper-slide v-for="item in related" :key="item.id">
       {{ item.id }}
               <div class="card d-flex h-100 shadow-sm">
                 <div class="bg-cover"
                   style="min-height: 200px;cursor: pointer;background-position: center;"
-                    @click.prevent="() =>test(item.id)" :style="{backgroundImage:`url(${item.imageUrl})`} ">
+                    @click.prevent="() =>render(item.id)" :style="{backgroundImage:`url(${item.imageUrl})`} ">
                     <!-- <img class="object-fit mb-3 mb-lg-2 w-100" :src="item.imageUrl" alt="" height="300"> -->
                 </div>
                 <div class="card-body p-0">
@@ -268,6 +268,7 @@ export default {
     getProductSingle () {
       const { id } = this.$route.params
       const loader = this.$loading.show()
+      console.log(id)
       this.$http
         .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/product/${id}`)
         .then((res) => {
@@ -276,9 +277,9 @@ export default {
           this.products = this.product
           console.log(this.product)
           console.log(this.products)
-
+          this.getCategory()
           loader.hide()
-          // this.getCategory()
+          // this.related()
         })
         .catch((err) => {
           alert(err)
@@ -315,7 +316,7 @@ export default {
           console.log(err)
           alert(err.response)
         })
-        // const { category, id } = this.productsAll
+      // const { category, id } = this.productsAll
       // this.fillter = this.tempProducts.filter((item) => { // 過濾
       //   console.log(item.id, item.category, id, category)
       //   return item.id !== id && item.category === category
@@ -336,37 +337,42 @@ export default {
     },
     ...mapActions(cartStore, ['addToCart']), // 取用cart store內的狀態資料(方法)
     ...mapActions(productStore, ['tempProductsa11', 'getProductAll', 'addtoFollow', 'getid']),
-    test (id) {
-      // alert('ff')
-      this.$router.push(`/product/${id}`)
-      // console.log(id)
-      this.id = id
-      this.getProductSingle()
-    }
     // related () {
-    //   const { category, id } = this.productsAll
-    //   console.log(category, id)
-    //   this.tempProducts = this.products.filter((item) => {
-    //     return id !== item.id && item.category === category
-    //   })
+    // productsone.forEach((item, i) => {
+    //   this.products = item[i]
+    // })
+    // console.log(category, id)
+    // const { category, id } = this.productsAll
+
     // this.x = this.productsAll
     // return this.productsAll.filter((item) =>
     //   id !== item.id && category === item.category
-    // // console.log(item.id !== this.productsAll.id && item.category === this.productsAll.category)
+    //   // console.log(item.id !== this.productsAll.id && item.category === this.productsAll.category)
     // )
     // }
+    render (id) {
+      this.$router.push(`/product/${id}`)
+      // this.getProductSingle()
+    }
   },
   computed: {
     ...mapState(productStore, ['followList']),
-    ...mapState(cartStore, ['loadingItem'])
+    ...mapState(cartStore, ['loadingItem']),
+    related () {
+      return this.productsAll.filter(
+        (item) => this.products.id !== item.id && item.category === this.products.category)
+    }
   },
-
-  // watch: {
-  // },
+  watch: {
+    '$route' (to, from) {
+      this.$router.go(0)
+    }
+  },
   mounted () {
     // this.test()
     this.getProductSingle()
     this.getProductAll()
+    // this.related()
     // this.getProducts()
   }
 }

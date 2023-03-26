@@ -16,7 +16,8 @@ const productStore = defineStore('product', {
       productsAll: [],
       category: '',
       categories: [],
-      isLoading: false
+      isLoading: false,
+      loadingItem: ''
       // cartNum: 1
     }
   },

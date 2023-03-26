@@ -45,7 +45,7 @@
                   </div>
                     <select name="" id="" class="form-select col-10" v-model="item.qty" @change="() => updateCartItem(item)"
                               :disabled="item.id === loadingItem">
-                      <option :value="i" v-for="i in 5" :Key="i + '45678'">{{ i }}</option>
+                      <option :value="i" v-for="i in 10" :Key="i + '45678'">{{ i }}</option>
                     </select>
                     <span class="col-12 d-block">{{ $filters.currency(item.product.price) }}</span>
                 </div>

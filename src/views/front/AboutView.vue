@@ -91,21 +91,23 @@
   <div class="row d-flex justify-content-center p-3">
     <h2 class="text-center text-primary mb-7 fw-bold">聯絡我們</h2>
     <div class="col-md-6 bg-white p-3 bg-secondary shadow-sm">
+      <form ref="form" @submit.prevent="() => send()">
       <div class="mb-3">
         <label for="mail-address" class="form-label">Email</label>
-        <input type="email" class="form-control" id="mail-address" placeholder="name@example.com">
+        <input type="email" class="form-control" id="mail-address" placeholder="name@example.com" v-model="user.email">
       </div>
       <div class="mb-3">
         <label for="phone-number" class="form-label">聯絡電話</label>
-        <input type="email" class="form-control" id="phone-number" placeholder="0987526513">
+        <input type="tel" class="form-control" id="phone-number" placeholder="0987526513" v-model="user.phone">
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">留言內容</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="user.msg"></textarea>
       </div>
       <div class="d-flex justify-content-center mb-3">
-        <a class="btn btn-primary" href="#">送出</a>
+        <button type="submit" class="btn btn-primary">送出</button>
       </div>
+    </form>
     </div>
   </div>
 
@@ -113,7 +115,30 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 export default {
+  data () {
+    return {
+      user: {
+        email: '',
+        phone: '',
+        msg: ''
+      }
+
+    }
+  },
+  methods: {
+    send () {
+      this.$refs.form.reset()
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: '表單已送出',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+  }
 }
 </script>
 
