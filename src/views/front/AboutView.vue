@@ -91,14 +91,16 @@
   <div class="row d-flex justify-content-center p-3">
     <h2 class="text-center text-primary mb-7 fw-bold">聯絡我們</h2>
     <div class="col-md-6 bg-white p-3 bg-secondary shadow-sm">
-      <form ref="form" @submit.prevent="() => send()">
+      <v-form ref="formabout" v-slot="{ errors }" @submit="send">
       <div class="mb-3">
         <label for="mail-address" class="form-label">Email</label>
-        <input type="email" class="form-control" id="mail-address" placeholder="name@example.com" v-model="user.email">
+        <v-field type="email" name="信箱" class="form-control" id="mail-address" placeholder="name@example.com"  :class="{ 'is-invalid': errors['信箱'] }" rules="email|required"  v-model="user.email"></v-field>
+        <error-message name="信箱" class="invalid-feedback"></error-message>
       </div>
       <div class="mb-3">
         <label for="phone-number" class="form-label">聯絡電話</label>
-        <input type="tel" class="form-control" id="phone-number" placeholder="0987526513" v-model="user.phone">
+        <v-field type="tel" name="電話" class="form-control" id="phone-number" placeholder="0987526513"  :class="{ 'is-invalid': errors['電話'] }" :rules="validateTelephone" v-model="user.phone"></v-field>
+        <error-message name="電話" class="invalid-feedback"></error-message>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">留言內容</label>
@@ -107,7 +109,7 @@
       <div class="d-flex justify-content-center mb-3">
         <button type="submit" class="btn btn-primary">送出</button>
       </div>
-    </form>
+    </v-form>
     </div>
   </div>
 
@@ -129,7 +131,7 @@ export default {
   },
   methods: {
     send () {
-      this.$refs.form.reset()
+      this.$refs.formabout.resetForm()
       Swal.fire({
         position: 'top-end',
         icon: 'success',
@@ -137,6 +139,10 @@ export default {
         showConfirmButton: false,
         timer: 1500
       })
+    },
+    validateTelephone (value) {
+      const phoneNumber = /^(09)[0-9]{8}$/
+      return phoneNumber.test(value) ? true : '請輸入09開頭的手機號碼'
     }
   }
 }
