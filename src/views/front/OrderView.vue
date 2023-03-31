@@ -2,11 +2,36 @@
   <div class="container py-8">
     <loading v-model:active="isLoading"></loading>
     <h2 class="text-center fw-bold text-primary mb-7">填寫訂單</h2>
+    <div class="pt-4 pb-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-9 col-md-7 timeline">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 col-md-5">
+            <div class="timeline-pointer text-center step-1 active">
+              <p>購物清單確認</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-2">
+            <div class="timeline-pointer text-center step-2 active">
+              <p>填寫訂單</p>
+            </div>
+          </div>
+          <div class="col-3 col-md-5">
+            <div class="timeline-pointer text-center step-3">
+              <p>購物完成</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <div class="row g-0 g-md-3 justify-content-center flex-column flex-md-row">
     <div class="col-md-9 mb-3 d-flex flex-column justify-content-between">
       <div class="row g-0 g-md-3">
         <div class="col-md-6">
-          <router-link to="/products" class="d-flex align-items-center text-decoration-none">
+          <router-link to="/cart" class="d-flex align-items-center text-decoration-none">
             <span class="material-icons">keyboard_return</span>
             回購物車列表
           </router-link>
@@ -20,7 +45,7 @@
                   <span class="fs-6 fs-md-4 mb-0">{{item.product?.title}}</span>
                 </div>
                 <div class="col-3 text-end">
-                  <span class="fs-6 fs-md-4">{{$filters.currency(item.product?.price)}}</span>
+                  <span class="fs-6 fs-md-4 noto-serif-font">{{$filters.currency(item.product?.price)}}</span>
                 </div>
                 <div class="col-2 text-end">
                   <span class="col-2 fs-6 fs-md-4">X{{item.qty}}</span>
@@ -33,10 +58,10 @@
               <div class="d-flex justify-content-between fs-5">
                 <span>總和</span>
                 <template v-if="discoutStatus">
-                  <span>{{$filters.currency(final_total)}}</span>
+                  <span class="fw-bold noto-serif-font text-danger">{{$filters.currency(final_total)}}</span>
                 </template>
                 <template v-else>
-                  <span>{{$filters.currency(total)}}</span>
+                  <span class="fw-bold noto-serif-font text-danger">{{$filters.currency(total)}}</span>
                 </template>
               </div>
             </div>

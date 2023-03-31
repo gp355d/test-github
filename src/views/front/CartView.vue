@@ -4,6 +4,31 @@
     <h2 class="text-center text-primary mb-7 fw-bold">購物車列表</h2>
     <div class="row g-0 g-md-3 g-lg-4 justify-content-center flex-column flex-md-row mb-4">
       <template v-if="carts.carts?.length">
+        <div class="pt-4 pb-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-9 col-md-7 timeline">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 col-md-5">
+            <div class="timeline-pointer text-center step-1 active">
+              <p>購物清單確認</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-2">
+            <div class="timeline-pointer text-center step-2">
+              <p>填寫訂單</p>
+            </div>
+          </div>
+          <div class="col-3 col-md-5">
+            <div class="timeline-pointer text-center step-3">
+              <p>購物完成</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
         <div class="col-md-6">
           <router-link to="/products" class="d-flex align-items-center text-decoration-none">
             <span class="material-icons">keyboard_return</span>
@@ -33,31 +58,33 @@
                 </div>
               <!-- </div> -->
             </div>
-            <div class="col-12">
+            <div class="col-12 noto-serif-font">
               <div class="row g-4 d-flex shadow-sm mb-3" v-for="item in carts.carts" :key="item.id">
-                <div class="col-4 col-md-4 d-flex align-items-center">
+                <div class="col-4 d-flex align-items-center">
                   <img class="object-fit w-100 img-fluid" :src="item.product.imageUrl" alt="">
                 </div>
-                <div class="col-8 col-md-8">
+                <div class="col-8 d-flex flex-column justify-content-center">
                   <div class="row g-4 mb-4">
-                    <div class="col-12 mb-0 position-relative">{{ item.product.title }}
-                      <div class="col-2 position-absolute top-0 end-0"><a class="d-block" href="#" @click.prevent="() => deleteItem(item)"
+                    <div class="col-12 mb-0 position-relative fs-5 fw-bold">{{ item.product.title }}
+                      <div class="col position-absolute top-0 end-0"><a href="#" @click.prevent="() => deleteItem(item)"
                           :disabled="item.id === loadingItem"><span class="material-icons fs-2">delete</span></a>
                       </div>
                     </div>
                   </div>
-                    <select name="" id="" class="form-select col-10" v-model="item.qty" @change="() => updateCartItem(item)"
+                  <div class="row g-4 d-flex justify-content-between">
+                    <span class="col-4 d-block fs-3 text-danger fw-bold">{{ $filters.currency(item.product.price) }}</span>
+                    <select name="product-number" id="" class="form-select w-50" v-model="item.qty" @change="() => updateCartItem(item)"
                               :disabled="item.id === loadingItem">
                       <option :value="i" v-for="i in 10" :Key="i + '45678'">{{ i }}</option>
                     </select>
-                    <span class="col-12 d-block">{{ $filters.currency(item.product.price) }}</span>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="col-12 mb-6">
               <div class="d-flex justify-content-end align-items-center shadow-sm">
                 <span class="fs-4 me-6">總金額</span>
-                <span class="fs-5 text-end me-2">{{ $filters.currency(carts.total) }}</span>
+                <span class="fs-5 text-end me-2 text-danger fw-bold noto-serif-font">{{ $filters.currency(carts.total) }}</span>
               </div>
             </div>
             <div class="col-12 d-flex justify-content-end">
@@ -175,3 +202,72 @@ export default {
 
 }
 </script>
+
+<style lang="scss">
+$primary: #46633D;
+
+.timeline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    width: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #C1C1C1;
+  }
+   &::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    width: 50%;
+    left: 50;
+    right: 0;
+    height: 2px;
+    background-color: #C1C1C1;
+  }
+  &-pointer {
+    position: relative;
+    color: #c1c1c1;
+    p {
+      padding-top: 24px;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+    &::before {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      background-color: #C1C1C1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      z-index: 1;
+    }
+    &.step-1::before {
+      content: '1';
+    }
+    &.step-2::before {
+      content: '2';
+    }
+    &.step-3::before {
+      content: '3';
+    }
+    &.active {
+      color: $primary;
+      &::before {
+        color: #FFFFFF;
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+  }
+}
+</style>

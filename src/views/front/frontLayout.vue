@@ -1,12 +1,12 @@
 <template>
   <NavbarCompoment :num="cartNUm"></NavbarCompoment>
   <!-- <BannerCompoment></BannerCompoment> -->
-    <div class="container-">
+  <div class="d-block d-md-flex">
+    <div class="wrapper">
             <router-view></router-view>
             <footerCompoment></footerCompoment>
     </div>
-
-  <!-- </div> -->
+  </div>
 </template>
 <script>
 import { mapActions, mapState } from 'pinia'

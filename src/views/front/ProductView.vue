@@ -1,8 +1,8 @@
 <template>
   <section class="container py-8">
-    <div class="row d-flex justify-content-center mb-4">
+    <div class="row g-0 g-md-3 g-lg-4 d-flex justify-content-center mb-4">
       <div class="col-md-9">
-        <div class="row mb-4">
+        <div class="row g-0 g-md-3 g-lg-4 mb-4">
           <h2 class="text-center text-primary fw-bold mb-7">鮮品味茶品</h2>
           <div class="col-md-7">
             <swiper
@@ -98,7 +98,7 @@
         </div>
       </div>
     </div>
-    <div class="row d-flex justify-content-center mb-4">
+    <div class="row g-0 g-md-3 g-lg-4 d-flex justify-content-center mb-4">
       <div class="col-md-9">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
@@ -171,7 +171,7 @@
         </div>
       </div>
     </div>
-    <div class="row d-flex justify-content-center">
+    <div class="row g-0 g-md-3 g-lg-4 d-flex justify-content-center">
       {{tempProducts}}
       <h2 class="text-center text-primary mb-7 fw-bold">相關商品</h2>
       <div class="col-md-9">

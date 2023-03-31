@@ -15,7 +15,7 @@
             <img class="col-4 img-fluid object-fit px-2" :src="list.imageUrl" :key="list.id" alt="img-fluid" height="130">
             <div class="col-7 d-flex flex-column align-items-center">
               <p class="fs-4 fs-md-6 mb-0">{{list.title}}</p>
-              <span class="col-12 fs-4 fs-md-6 d-block">{{ $filters.currency(list.price) }}</span>
+              <span class="col-12 fs-4 fs-md-6 d-block text-danger noto-serif-font fw-bold">{{ $filters.currency(list.price) }}</span>
               <button type="button" class="btn btn-primary w-50" :disabled="loadingItem === list.id+'1'" @click.prevent="() => addToCart(list.id)">加入購物車
                 <i class="fas fa-spinner fa-pulse" v-if="loadingItem === list.id+'1'"></i>
               </button>

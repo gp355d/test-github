@@ -66,7 +66,7 @@
                       favorite
                     </span>
                   </a>
-                  <span>{{ $filters.currency(product.price) }}</span>
+                  <span class="fw-bold text-danger noto-serif-font">{{ $filters.currency(product.price) }}</span>
                 </div>
                 <div class="d-grid">
                   <button :disabled="loadingItem === product.id+'1'" type="button" class="btn btn-outline-primary fw-normal" @click="() => addToCart(product.id, 1)" >

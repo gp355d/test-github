@@ -2,6 +2,31 @@
 <div class="container py-8">
   <!-- <loading v-model:active="isLoading"></loading> -->
   <h2 class="text-center text-primary fw-bold mb-7">訂購完成</h2>
+  <div class="pt-4 pb-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-9 col-md-7 timeline">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 col-md-5">
+            <div class="timeline-pointer text-center step-1 active">
+              <p>購物清單確認</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-2">
+            <div class="timeline-pointer text-center step-2 active">
+              <p>填寫訂單</p>
+            </div>
+          </div>
+          <div class="col-3 col-md-5">
+            <div class="timeline-pointer text-center step-3 active">
+              <p>購物完成</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <div class="row g-0 g-md-3 g-lg-4 justify-content-center flex-column flex-md-row">
     <div class="col-md-9 mb-3 d-flex flex-column justify-content-between">
       <div class="row g-0 g-md-3 g-lg-4">
@@ -15,10 +40,10 @@
             </router-link>
             <h3 class="text-center fw-bold text-primary">訂單明細</h3>
             <template v-for="item in order.products" :key="item.id">
-              <div class="d-flex align-items-center mb-4 shadow-sm p-2">
+              <div class="d-flex align-items-center mb-4 shadow-sm p-2 noto-serif-font">
                 <img class="col-4 object-fit img-fluid" :src="item.product.imageUrl" alt="" height="50">
                 <p class="col-3 fs-6 fs-md-4 mb-0 d-flex flex-nowrap p-2">{{item.product.title}}</p>
-                <span class="col-3 fs-6 fs-md-4 text-end">{{ $filters.currency(item.product.price) }}</span>
+                <span class="col-3 fs-6 fs-md-4 text-end noto-serif-font">{{ $filters.currency(item.product.price) }}</span>
                 <span class="col-2 fs-6 fs-md-4 text-end">X{{ item.qty }}</span>
               </div>
             </template>
@@ -28,7 +53,7 @@
             </div> -->
             <div class="d-flex justify-content-between fs-5">
               <span>總計</span>
-              <span>{{  $filters.currency(order.total) }}</span>
+              <span class="fw-bold noto-serif-font text-danger noto-serif-font">{{  $filters.currency(order.total) }}</span>
             </div>
           </div>
         </div>
