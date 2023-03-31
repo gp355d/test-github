@@ -24,5 +24,5 @@ git commit -m 'deploy'
 # git push -f git@github.com:gp355d/gp355d.github.io.git main
 
 # if you are deploying to https://gp355d.github.io/vite-deploy-sample
-git push -f https://github.com/gp355d/flash-tea.git main:gh-pages
+git push -f https://github.com/gp355d/test-github.git main:gh-pages
 cd -
