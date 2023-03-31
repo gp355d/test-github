@@ -1,10 +1,9 @@
 <template>
-    <div class="gg container-fluid">
-          <div class="wrapper">
-            <NavbarCompoment :num="cartNUm"></NavbarCompoment>
+  <NavbarCompoment :num="cartNUm"></NavbarCompoment>
+  <!-- <BannerCompoment></BannerCompoment> -->
+    <div class="container-">
             <router-view></router-view>
             <footerCompoment></footerCompoment>
-          </div>
     </div>
 
   <!-- </div> -->
@@ -14,9 +13,11 @@ import { mapActions, mapState } from 'pinia'
 import cartStore from '../../stores/cart'
 import NavbarCompoment from '../../components/NavbarCompoment.vue'
 import footerCompoment from '../../components/FooterCompoment.vue'
+// import BannerCompoment from '../../components/BannerCompoment.vue'
 export default {
   components: {
     NavbarCompoment,
+    // BannerCompoment,
     footerCompoment
   },
   computed: {

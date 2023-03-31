@@ -1,10 +1,10 @@
 <template>
 <div class="container py-8">
-  <div class="row d-flex justify-content-center py-5">
+  <div class="row g-0 d-flex justify-content-center py-5">
     <div class="col-md-9 p-3">
       <h2 class="text-center text-primary mb-7 fw-bold">茶葉知識文章</h2>
       <div class="row mb-5 p-3">
-        <div class="col-md-6 col-lg-4  mb-3 mb-md-0" v-for="article in articles" :key="article.id">
+        <div class="col-md-6 col-lg-4  mb-3 mb-lg-0" v-for="article in articles" :key="article.id">
           <div class="h-100 shadow-sm">
             <img class="object-fit w-100 img-fluid" :src="article.imgurl" alt="article-img" height="300px">
             <div class="content p-3 flex-column align-items-center">
@@ -22,8 +22,8 @@
         </div>
       </div>
     </div>
+    <Pagination :pages="pagination" @emitPages="getArticles"></Pagination>
   </div>
-  <Pagination :pages="pagination" @emitPages="getArticles"></Pagination>
 </div>
 </template>
 

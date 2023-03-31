@@ -2,19 +2,22 @@
 <div class="container py-8">
   <!-- <loading v-model:active="isLoading"></loading> -->
   <h2 class="text-center text-primary fw-bold mb-7">訂購完成</h2>
-  <div class="row justify-content-center flex-column flex-md-row">
+  <div class="row g-0 g-md-3 g-lg-4 justify-content-center flex-column flex-md-row">
     <div class="col-md-9 mb-3 d-flex flex-column justify-content-between">
-      <div class="row">
+      <div class="row g-0 g-md-3 g-lg-4">
         <p>您已經完成本次購物，當確認訂購資訊無誤及付款完成後，我們將立即出貨，感謝您訂購商品</p>
         <div class="col-md-6">
           <div class="border p-2 mb-2 mb-md-0 h-100">
             <!-- {{ order.products['-NQB8IpoU-mqce9kzwNo'].product.title }} -->
-            <router-link  to="/home">回首頁</router-link>
+            <router-link to="/home" class="d-flex align-items-center text-decoration-none">
+              <span class="material-icons">keyboard_return</span>
+              回首頁
+            </router-link>
             <h3 class="text-center fw-bold text-primary">訂單明細</h3>
             <template v-for="item in order.products" :key="item.id">
               <div class="d-flex align-items-center mb-4 shadow-sm p-2">
                 <img class="col-4 object-fit img-fluid" :src="item.product.imageUrl" alt="" height="50">
-                <p class="col-3 fs-6 fs-md-4 mb-0 d-flex flex-nowrap">{{item.product.title}}</p>
+                <p class="col-3 fs-6 fs-md-4 mb-0 d-flex flex-nowrap p-2">{{item.product.title}}</p>
                 <span class="col-3 fs-6 fs-md-4 text-end">{{ $filters.currency(item.product.price) }}</span>
                 <span class="col-2 fs-6 fs-md-4 text-end">X{{ item.qty }}</span>
               </div>
@@ -30,7 +33,7 @@
           </div>
         </div>
         <div class="col-md-6 border py-2">
-          <div class="row">
+          <div class="row g-0 g-md-3 g-lg-4">
             <div class="col-12 mb-2">
               <h3 class="text-center text-primary fw-bold">顧客資訊</h3>
               <div class="shadow-sm p-2">

@@ -2,11 +2,14 @@
   <div class="container py-8">
     <loading v-model:active="isLoading"></loading>
     <h2 class="text-center fw-bold text-primary mb-7">填寫訂單</h2>
-  <div class="row justify-content-center flex-column flex-md-row">
+  <div class="row g-0 g-md-3 justify-content-center flex-column flex-md-row">
     <div class="col-md-9 mb-3 d-flex flex-column justify-content-between">
-      <div class="row">
+      <div class="row g-0 g-md-3">
         <div class="col-md-6">
-          <router-link to="/products">回購物車列表</router-link>
+          <router-link to="/products" class="d-flex align-items-center text-decoration-none">
+            <span class="material-icons">keyboard_return</span>
+            回購物車列表
+          </router-link>
             <div class="border p-2 h-100">
               <h3 class="text-center fw-bold text-primary">訂單明細</h3>
               <div class="d-flex align-items-center mb-4 shadow-sm p-2" v-for="item in carts.carts" :key="item.id">

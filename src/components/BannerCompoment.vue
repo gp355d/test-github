@@ -1,17 +1,20 @@
 <template>
-    <!-- <div class="banner">
-      <div class="banner-img d-flex align-items-center justify-content-center">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-
-        </div>
-      </div>
-    </div> -->
-    <div class="banner">
-      <div class="banner-img" style="top:0; bottom:0; left:0; right:0; background-image: url('https://images.unsplash.com/photo-1522747776116-64ee03be1dad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
-      background-position: center center; opacity: 0.8; z-index: 2;">
-      <div class="container d-flex flex-column" style="min-height: 100vh;">
+  <div class="position-relative" style="margin-top: -64px;">
+      <div class="position-absolute" style="
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+      background-image: url(https://images.unsplash.com/photo-1522747776116-64ee03be1dad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+      background-position: center center;
+      opacity: 0.8;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -1;
+      "></div>
+      <div class="container" style="min-height: 100vh; z-index: 3;">
         <!-- <NavbarCompoment :num="cartNUm"></NavbarCompoment> -->
-        <div class="row justify-content-center my-auto">
+        <div class="row g-0 d-flex justify-content-center my-auto">
           <div class="col-md-4 text-center">
             <img src="../assets/images/slogo2.svg" alt="logo" width="124" class="mb-8">
             <h2 class="fs-4 mb-3 lh-29 fw-bold noto-serif-font">從田間到您家，新鮮無損</h2>
@@ -23,18 +26,30 @@
         </div>
       </div>
     </div>
-    </div>
+    <!-- <div class="banner">
+      <div class="banner-img d-flex align-items-center justify-content-center">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+        </div>
+      </div>
+    </div> -->
+
 </template>
 <script>
 // import NavbarCompoment from './NavbarCompoment.vue'
-// import { mapState } from 'pinia'
-// import cartStore from '../stores/cart'
+import { mapState, mapActions } from 'pinia'
+import cartStore from '../stores/cart'
 export default {
   computed: {
-    // ...mapState(cartStore, ['cartNUm']) // 取用cart store內的狀態資料(資料)
+    ...mapState(cartStore, ['cartNUm']) // 取用cart store內的狀態資料(資料)
   },
   components: {
     // NavbarCompoment
+  },
+  methods: {
+    ...mapActions(cartStore, ['getCarts'])
+  },
+  mounted () {
+    this.getCarts()
   }
 }
 </script>
@@ -45,7 +60,7 @@ export default {
   top: 0;
   left: 0;
   /* width: 100%; */
-  height: 100vh;
+  height: 660px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -1,8 +1,8 @@
 <template>
   <div class="container py-8">
-  <div class="row justify-content-center mb-0">
+  <div class="row g-0 g-md-3 g-lg-4 justify-content-center mb-0">
     <h2 class="text-center text-primary mb-7 fw-bold">茶品介紹</h2>
-    <div class="col-lg-3 mb-4 mb-md-0">
+    <div class="col-lg-3 mb-4 mb-lg-0">
       <!-- {{ followList.id }}
       {{ filtercategory}} -->
       <!-- setCategory -->
@@ -39,7 +39,7 @@
       </ul>
     </div>
     <div class="col-lg-9 mb-4 mb-md-0">
-      <div class="row mb-3">
+      <div class="row g-0 g-md-3 g-lg-4 mb-3">
         <div class="col-md-6 col-lg-4 mb-4 mb-md-3" v-for="product in product" :key="product.id">
           <!-- {{ product.id }} -->
           <div class="card border-0 shadow-sm rounded-3">

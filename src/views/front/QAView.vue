@@ -1,6 +1,6 @@
 <template>
   <div class="container py-8">
-    <div class="row justify-content-center align-items-center flex-column">
+    <div class="row g-0 g-md-3 g-lg-4 justify-content-center align-items-center flex-column">
       <h2 class="text-center text-primary mb-7 fw-bold">常見問題</h2>
       <div class="col-md-6 mb-5 justify-content-center d-flex flex-column">
       <div class="accordion" id="accordionExample">

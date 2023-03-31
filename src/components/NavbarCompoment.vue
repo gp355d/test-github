@@ -61,7 +61,7 @@
               <router-link to="/QA" class="link d-block fs-6 mb-7" href="#">常見問題</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/" class="link d-block fs-6 mb-7" href="#">茶品收藏</router-link>
+              <router-link to="/favorite" class="link d-block fs-6 mb-7" href="#">茶品收藏</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/cart" class="link d-block fs-6" href="#">購物車</router-link>

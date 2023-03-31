@@ -2,11 +2,14 @@
   <div class="container py-8">
     <loading v-model:active="isLoading"></loading>
     <h2 class="text-center text-primary mb-7 fw-bold">購物車列表</h2>
-    <div class="row justify-content-center flex-column flex-md-row mb-4">
+    <div class="row g-0 g-md-3 g-lg-4 justify-content-center flex-column flex-md-row mb-4">
       <template v-if="carts.carts?.length">
         <div class="col-md-6">
-          <router-link to="/products">回商品列表</router-link>
-          <div class="row bg-white p-2">
+          <router-link to="/products" class="d-flex align-items-center text-decoration-none">
+            <span class="material-icons">keyboard_return</span>
+            回商品列表
+          </router-link>
+          <div class="row g-0 g-md-3 g-lg-4 bg-white p-2">
             <!-- <div class="col-12 mb-3">
               <div class="row">
                 <div class="d-flex align-items-center text-center shadow-sm fw-bold">
@@ -31,12 +34,12 @@
               <!-- </div> -->
             </div>
             <div class="col-12">
-              <div class="row d-flex shadow-sm mb-3" v-for="item in carts.carts" :key="item.id">
-                <div class="col-4 col-md-4">
+              <div class="row g-4 d-flex shadow-sm mb-3" v-for="item in carts.carts" :key="item.id">
+                <div class="col-4 col-md-4 d-flex align-items-center">
                   <img class="object-fit w-100 img-fluid" :src="item.product.imageUrl" alt="">
                 </div>
                 <div class="col-8 col-md-8">
-                  <div class="row mb-4">
+                  <div class="row g-4 mb-4">
                     <div class="col-12 mb-0 position-relative">{{ item.product.title }}
                       <div class="col-2 position-absolute top-0 end-0"><a class="d-block" href="#" @click.prevent="() => deleteItem(item)"
                           :disabled="item.id === loadingItem"><span class="material-icons fs-2">delete</span></a>

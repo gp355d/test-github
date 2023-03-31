@@ -1,9 +1,11 @@
 <template>
 <div class="container py-8">
   <loading v-model:active="isLoading"></loading>
-  <router-link to="/products">繼續購物</router-link>
+  <router-link to="/products" class="d-flex align-items-center text-decoration-none">
+    <span class="material-icons">keyboard_return</span>繼續購物
+  </router-link>
   {{ }}
-  <div class="row align-items-center flex-column flex-md-row d-flex justify-content-center">
+  <div class="row g-0 g-md-3 g-lg-4 align-items-center flex-column flex-md-row d-flex justify-content-center">
     <h2 class="text-center text-primary mb-7 fw-bold">你的收藏茶品</h2>
     <template v-if="followList.list.length > 0">
       <div class="col-md-9">
