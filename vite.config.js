@@ -5,7 +5,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/flash-tea/',
+  base: '/test-github/',
   plugins: [
     vue(),
     eslintPlugin({
